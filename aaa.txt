@@ -1,3 +1,0 @@
-aaa
-main
-dev
