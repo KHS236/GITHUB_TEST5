@@ -1,0 +1,90 @@
+
+
+
+
+선택자란?
+HTML 요소를 선택하여 스타일을 지정할 수 있게 해주는 문법
+CSS의 핵심 기능
+선택자에 따라 특정 요소에만 스타일을 적용할 수 있음
+
+
+1. 전체 선택자
+바디를 포함한 바디영역의 모든 태그
+
+
+06.html
+2. : == 의사 선택자
+
+### 마우스 enter
+        .btn:hover{
+            opacity: 1;
+            font-size:1.4rem;
+        }
+
+
+### 마우스 액션(클릭 중일 때)
+        .btn:active{
+            color:gray;
+            font-size : 1.2rem;
+        }
+
+### 방문했을 때
+        .btn:visited{
+            color:black;
+            background-color: tomato;
+        }
+
+
+
+
+
+총정
+
+
+선택자
+    * 	- 전체 선택자
+div,span 	- 요소 선택자
+  #id1 	- id 선택자
+    , 	- 그룹 선택자
+
+
+>	- 자식 선택자
+공백	- 자손 선택자
+
+~	- 동위 선택자(아래에 있는 n)
++	- 동위 선택자(아래에 있는 1개) - > 체크박스
+
+
+
+
+:hover	- 의사 선택자 (마우스오버)
+
+::before	- 가상 선택자
+::after 	- 가상 선택자 : 메뉴 구분선 만들기(next mon)
+
+
+nth-child : n번째 자식요소
+ex)
+```html
+        ul>li:nth-child(2n){
+            background-color: aquamarine;
+        }
+        ul>li:nth-child(2n+1){
+            background-color: antiquewhite;
+        }
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

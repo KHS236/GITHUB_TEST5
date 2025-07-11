@@ -1,0 +1,44 @@
+
+
+이미지 안에 로고 맞추는 공식
+margin + position
+
+
+가운데 맞추기 - 01
+포지션 일반적인 공식
+상위는 relative
+하위는 absolute
+        .p1{
+            position: relative;
+
+        }
+        .s1{
+            position: absolute;
+
+        }
+
+solid == 실선
+dashed == 대쉬선
+dotted == 도트점선
+double == 기준선
+
+
+transparent == 보더 선 투명화
+
+
+
+
+box-sizing == 크기를 재는 방법을 제시하는 것
+contents-box == 컨텐츠박스를 기준
+border-box == 보더를 기준
+
+
+
+
+
+
+
+
+
+
+
