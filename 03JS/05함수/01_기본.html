@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+
+
+    <!-- 함수 ?? -->
+    <!-- 함 수 : 수(Data)를 받아 처리하는 논리적 공간 -->
+
+
+    <script>
+        // ECMA6 이전
+        // 인자 o 리턴 o
+        function sum1(n1,n2) //sum1 함수헤더 (파라미터 2개) 
+        {
+            return n1+n2;   //함수 기능
+        }
+        const v1 = sum1(100,200); //함수 실행 Call(Call-by-Value) // sum1 호출,인자2개 -->v1에 대입
+        console.log(v1); //함수 실행 Call(Call-by-Value)
+        
+        
+        // 인자 o 리턴 x
+        function sum2(n1,n2) //파라미터 2개
+        {
+            console.log(n1+n2); // 함수 기능 안에서 함수가 실행되면 바로 콘솔로그 출력
+        }
+        sum2(200,300);  //함수 호출,인수 인풋
+
+        
+        // 인자 x 리턴 o
+        function sum3(){ //파라미터 없음
+            const n1=111; //인수를 받을 파라미터가 없어서 함수 내부에서 값 만들어줌
+            const n2=222;
+            console.log(n1+n2) //함수 기능
+            return n1+n2; // 반환값
+        }
+        const v3 = sum3(); //함수 호출해서 v3에 저장
+        console.log(v3); // v3 실행
+
+
+        // 인자 x 리턴 x
+        function sum4(){  // 인자 없음 인수 없음
+            const n1 = 150; // 함수 안에서 값 만들어줌
+            const n2 = 220;
+            console.log(n1+n2); // 함수 안에서 출력문 실행
+            // 리턴 없음
+        }
+        sum4(); //함수 호출시 함수 내부 출력문 실행
+
+
+        // ECMA6 이후 ()=>{}
+        const function1 = (n1,n2)=>{return n1+n2} //인자o 반환값 o
+        const function2 = (n1,n2)=>{console.log(n1+n2)} // 인자 o 반환 x
+        const function3 = ()=>{return 100;} //인자x 반환 o
+        const function4 = ()=>{}  //인자x 반환 x
+
+        function2(15,20);
+
+
+
+        
+        // 인자의 개수 ? 파라미터가 받을 수 있는 인수의 개수 무제한(메모리 공간이 남으면)
+        // how ==> 가변인자 사용
+        
+        const f5 = (n1,n2,...args)=>{
+            console.log(n1);
+            console.log(n2);
+            console.log(args);
+        }
+        f5(100,200,300,400,500,600,700,800,900)//가변인자는 배열형태로 받는다
+        
+        
+        
+        // 반환값의 개수? 리턴값은 1개
+        // 여러개 return 시 object 사용
+
+        const f6=()=>{
+            return{
+                // 속성
+                n1 : 100,
+                n2 : 200,
+                // 기능
+                sum : function(){return this.n1+this.n2;}
+
+
+            }
+        }
+        const v20 = f6();
+        console.log(v20.sum(
+
+
+        ));
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+    
+</body>
+</html>
