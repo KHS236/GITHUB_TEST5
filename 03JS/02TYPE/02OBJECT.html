@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+<body>
+
+
+
+
+    <button onclick="peanut.sound()">땅콩 웃어</button>
+
+
+    <hr/>
+    <h1>MY CAR</h1>
+    소유자:<input id="Owner" /><br/>
+    차종:<input id="cat" /><br/>
+    연료타입 : <input id="fuelType"/><br/>
+    <button id="save">저장하기</button>
+    <hr/>
+    <button onClick="myCar.accel()">가속</button>
+    <button onClick="myCar.break()">감속</button>
+    <button onClick="myCar.toString()">상태확인</button>
+    <h2>대시보드</h2>
+    <div id="gauge" style="transition: .5s;height: 50px; width: 0; background-color: rgb(72, 255, 103);"></div>
+
+
+
+    <script>
+
+        //MY CAR 속성 : 소유자, 속도, 연료량, 차종, 연료타입...
+        const myCar = {
+            //속성
+            Owner : "",
+            cat : "",
+            fuelType : "",
+            speed : 0,
+            fuelAmout : 100,
+
+            //기능
+            accel:function(){
+                this.speed = this.speed+10;
+                console.log("가속처리 완료 현재 속도 : " ,this.speed);
+
+                const gaugeEl = document.getElementById('gauge');
+                gaugeEl.style.width=`${this.speed * 2}px`;
+            },
+            break:function(){
+                this.speed = this.speed - 10;
+                console.log("감속처리 완료 현재 속도 : " ,this.speed);
+
+                const gaugeEl = document.getElementById('gauge');
+                gaugeEl.style.width=`${this.speed * 2}px`;
+            },
+            
+            toString:function(){
+                console.log(this.owner,this.cat,this.fuleType,this.speed,this.fuelAmout);
+            },
+        }
+
+        const saveBtn = document.getElementById('save');
+        saveBtn.addEventListener('click',()=>{
+            const OwnerInputEl = document.getElementById('Owner');
+            const catInputEl = document.getElementById('cat');
+            const fuelTypeInputEl = document.getElementById('fuelType');
+            // console.log('save btn clicked..',OwnerInputEl.value,catInputEl.value,fuelTypeInputEl.value);
+            myCar.Owner = OwnerInputEl.value;
+            myCar.cat = catInputEl.value;
+            myCar.fuleType = fuelTypeInputEl.value;
+            console.log('save btn clicked..myCarInfo : ',myCar);
+        });
+
+
+        // object : 사물 < 객체 ( 주체를 제외한 모든 '대상' )
+
+        const peanut ={
+            // 속성
+            name:"땅콩",
+            kind:"시츄",
+            age:1,
+            weight:8.4,
+            //기능
+            sound:function(){  //여기서부터는 '처리' 화살표함수 사용
+                alert(this.name+": 멍멍 ");
+            },
+            toString:function(){
+                console.log(this.name,this.kind,this.age,this.weight);
+            }
+        }
+        //
+        console.log(peanut);
+        console.log(peanut.name);
+        console.log(peanut.kind);
+        console.log(peanut.age);
+        console.log(peanut.weight);
+        
+        // peanut.sound();
+        peanut.name='오이';
+        peanut.toString()
+
+
+
+    </script>
+
+
+
+
+    
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+
+
+<body>
+    <!-- 기존에 만들던 버튼 -->
+    <button>btn1</button>
+    <a>btn2</a>
+    <input type="submit" value="btn3">
+
+    <hr/>
+
+    <!-- JS로 임의 버튼 만들기 -->
+    <div class="btn" style="width: 80px;padding: 10px;border: 1px solid;">Div's btn</div>
+
+    <script>
+        // btn 클래스 찾기 >> const btnEl = document.querySelector('.btn');
+        const btnEl = document.querySelector('.btn');
+        let state = false; //다시 클릭하면 돌아가도록 하기 위해 기본 상태값을 저장
+
+        // btnEl.addEventListener('이벤트종류','수행로직-!') ※콜백함수 ※화살표함수
+        btnEl.addEventListener('click',()=>{// 클릭 했을 떄 어떻게 동작을 해! 라는 뜻
+            // alert('클릭됨'); 팝업 귀찮아서 주석
+
+            // if(조건식)
+            if(state){
+                btnEl.style.backgroundColor = 'white'; //JS는 -를 사용하지 않고 앞글자를 대문자로 바꾼다. ex) background-color > backgroundColor
+                btnEl.style.color = 'black';
+                state = false; //else문에 state = true와 마찬가지로 다시 false로 바꿔줌
+            }
+            else{
+                btnEl.style.backgroundColor = 'black';
+                btnEl.style.color = 'white'; 
+                state = true; //기본 state값이 false이기 때문에 상태값이 변하면 true로 변하도록 넣어줌
+            }
+
+        })
+
+    </script>
+
+
+</body>
+</html>

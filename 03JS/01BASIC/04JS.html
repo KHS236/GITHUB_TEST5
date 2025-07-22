@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+
+
+    <script> //자료형
+        // Number
+        console.log(typeof 10); //정수
+        console.log(typeof 10.5); //실수 == 같은 number형
+
+
+        // String
+        console.log(typeof "HelloWorld");
+        console.log(typeof 'HelloWorld');   //홑따옴표, 겉따옴표 같은 String
+        console.log(typeof `HelloWorld`);   //백틱도 문자열 취급한다 !!!!!!!!!!!!!!!!!!!!!
+
+
+        // Object : ( Key : value , Key : Value)
+        // {"name":"김홍섭","age":"25","addr":"대구"}
+        console.log(typeof {});
+        console.log(typeof {"name":"김홍섭","age":"25","addr":"대구"});
+
+
+        // null  // 변수 초기화 (공간형성 + 기본값 삽입 - 개발자가 의도한 '값' Null)
+        console.log("-------------------------------------------------------")
+        let vol = null; // vol이라는 변수에 null이라는 빈 값인 상태로 미리 만들어둔 것
+        console.log(vol);
+        console.log(typeof vol);
+        console.log("-------------------------------------------------------")
+
+
+        // undefined (공간형성 o , x but 기본값은 생략 - 개발자가 의도하지 못한 예외)
+        let vol2; //변수는 선언했으나(공간은 정의했으나) 값은 없음 >> undefined
+
+        console.log(vol2) //04JS.html:45 Uncaught ReferenceError: vol2 is not defined
+        // 선언되지 않은 변수 (공간을 만들지도 않았는데 로그를 찍어서 오류 발생)
+        // 위에서 let vol2 선언해보기
+
+        // boolean (조건식)
+        // true , false 
+        // 얘가 있는 이유? 컴퓨터에게 무언가 물어보는 것 ex) 3>2 == true / 3<2 == false
+        
+
+
+
+
+        // JS에서는
+        // null , undefined : 개발자가 의도한 거냐/실수한 거냐 차이
+        // 동일한 것은 값이 없는 빈 공간이라는 것
+
+
+    </script>
+
+
+
+    
+</body>
+</html>

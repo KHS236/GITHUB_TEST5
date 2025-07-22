@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+
+
+    <button onclick="alert('HELLOWORLD')">BTN1</button>
+    <button onclick="alert(10+20)">BTN2</button>
+    <button onclick="alert('HELLOWORLD\nHELLOWORLD\nHELLOWORLD')">BTN3</button>
+
+    <hr/>
+
+    <a href="javascript:void(0)">BTN0</a><br/> <!-- 아무 기능도 쓰지 않는 js--> 
+    <a href="javascript:alert('HELLOWORLD')">BTN1</a><br/>
+    <a href="javascript:alert(10+20)">BTN2</a><br/>
+    <a href="javascript:alert('HELLOWORLD\nHELLOWORLD\nHELLOWORLD')">BTN3</a><br/>
+    <a href="javascript:console.log(obj)">BTN4</a><br/>
+
+
+    <script> /*html에서 js를 처리할 때 사용하는 태그
+            (일반적으로 html에서 문서를 처리할 때 최하단에서 처리)*/
+        const obj = {"name":"김홍섭","age":"25","addr":"대구"}
+    </script>
+    
+</body>
+</html>

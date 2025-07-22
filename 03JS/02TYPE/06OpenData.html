@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script src="./js/중구맛집.js"></script>
+
+
+</head>
+<body>
+
+
+
+
+
+
+
+
+    <script>
+        // 중구 맛집 js파일의 모든 데이터
+        console.log("ALL DATA",중구맛집);
+        // 모든 데이터 중에서 data만
+        const datas = 중구맛집.data;
+        console.log(datas);
+        // data 중에서 한식 카테고리만 필터링
+        const what = datas.filter((item)=>{return item.FD_CS=="한식"}) //필터링해서 what에 담음
+        console.log(what); //what 출력시 카테고리 한식인 데이터만 출력
+
+
+
+
+        //----------------------------------------------------------------------------------------------------------
+
+        // 일식 필터링 -> 상호명(BZ_NM),메뉴(MNU),주소(GNG_CS)만 추출해서 새로운 배열로 재구성
+        const jpndatas = datas.filter((item)=>{return item.FD_CS=='일식'})
+        console.log(jpndatas);
+
+
+
+        console.log("=====================================================================================");
+        // 추출? 추출????
+        const rejpndatas = jpndatas.map((item)=>{
+            item = {"BZ_NM":item.BZ_NM , "MNU":item.MNU , "GNG_CS":item.GNG_CS}  
+            // 같은 이름의 요소(KEY)값을 만들고 value값을 그대로 가져옴
+        return item })
+        console.log(rejpndatas)
+
+
+
+
+    </script>
+    
+
+
+</body>
+</html>

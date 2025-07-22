@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+
+                <!--  -->
+    <script>
+        // Object 객체 : 객체를 다루는 기본함수 제공 
+        // object 자료형과는 별개로 미리 만들어진 객체
+        console.log("Object",typeof Object);
+        const obj = {"name":"김홍섭","age":25};
+        console.log("obj",typeof obj);
+        console.log("null",typeof null);
+
+        console.log("=======================================");
+        console.log(Object.keys(obj)); //obj의 key를 배열형태로 반환
+        console.log(Object.values(obj)); //obj의 value를 배열형태로 반환 
+        console.log(Object.entries(obj)); //열거가능한 속성 ([key:value])형태의 배열로 반환
+
+
+        //복사하기 (객체의 속성을 합친다?)
+        let ob1 = {addr:"대구"}
+        let ob2 = {gender:"M"}
+
+        console.log(Object.assign(obj,ob1,ob2));
+
+
+        //읽기전용 (객체의 기존 속성 수정 불가 + 새 속성 추가 불가능)
+        // Object.freeze(obj);
+
+
+        //기존 내용 수정 가능 + 새속성 추가 불가능
+        Object.seal(obj);
+        obj.name="티모";
+        console.log(obj);
+
+        //새로운 속성 추가
+        obj["key1"]="value1";
+        console.log(obj);
+
+    </script>
+
+
+
+    
+</body>
+</html>

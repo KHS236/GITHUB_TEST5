@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+    <script>
+
+        // 보간법
+        // 변수,함수 호출 및 산술 표현식을 문자열에 직접 삽입할 수 있는 기능
+        // ${value} 형식을 사용, 백틱(``)에만 사용가능
+         
+
+        // 변수지정 : let (바뀌는 수[data]), 상수지정 : const (바꾸지 못하는 수[data])
+        let str1 = "HELLO";
+        let str2 = "WORLD";
+        console.log(str1 + str2);
+
+
+        let str3 = `TEST1 : ${str1} / ${str2}`; // 이게 무슨 근본 없는..?
+        let str4 = `TEST2 : ${10+20+30}`;   //60
+        let str5 = `10>20 ? ${10>20}`;  //false
+        // 단순 산술연산처리 / 비교연산처리가 가능하고 결과를 문자열로 반환한다.
+
+        console.log(str3);
+        console.log(str4);
+        console.log(str5);
+
+
+        let aa = 650;
+        let bb = 240;
+        let cc = ` ${aa + bb}`;
+        console.log(cc);
+
+
+    </script>
+
+    
+</body>
+</html>

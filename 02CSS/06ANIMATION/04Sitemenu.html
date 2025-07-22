@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{box-sizing: border-box;}
+        body{margin: 0;}
+        .sitemenu{
+            padding: 20px;
+            position: relative; /*사이트 블럭의 포지셔닝을 위한 기준*/
+        
+        }
+
+        .sitemenu>input[type="checkbox"]{
+            display: none; /* 체크박스 가리기*/
+        }
+        .sitemenu>label{}
+        .sitemenu>label>span{ /*3선 햄버거 메뉴 스타일링*/
+            display: block; /*span은 라인형이라 width height 적용 x 블락으로 바꿔줌*/
+            width: 35px;
+            height: 2px;
+            background-color: black;
+            margin: 8px; /*3선이 겹쳐서 살짝 띄어줌*/
+            transition: .3s; /*모양 변화에 지연 효과*/
+        }
+        /* 인풋타입 체크박스: 체크했을 때 + 라벨 안에 span 1번째 자식 태그를 적용할 스타일*/
+        .sitemenu>input[type="checkbox"]:checked+label>span:nth-child(1){
+            transform: translate(0,10px) rotate(45deg);/*제일 윗 선 y축10px,45도 기울이기*/
+        }
+        .sitemenu>input[type="checkbox"]:checked+label>span:nth-child(2){
+            opacity: 0; /*투명도 0으로 만들기*/
+        }
+        .sitemenu>input[type="checkbox"]:checked+label>span:nth-child(3){
+            transform: translate(0,-10px) rotate(-45deg);/*y축 -10px , -45도 기울여서 위로 올라가도록*/
+        }
+        /* 3선 햄버거 메뉴에서 체크시 x모양으로 바뀜 */
+
+
+        .site-block{ /*사이트 블럭의 기본 위치 확인 스타일링, 나중에 w,h 0으로 바꾸기*/
+            width: 0;
+            height: 0;
+            margin-top: 25px;
+            /* border: 1px solid; */ /*메뉴 열기 전 점 없애기 위해 주석처리*/
+            position: absolute; /*메뉴를 열기 전 화면이 있기 때문에 포지셔닝을 잡아준다*/
+        }
+
+        /* 체크 했을 때  사이트 블럭이 표시되도록 하기 ( +는 하위 1개의 요소/ ~는 하위 모든 요소 선택자 )*/
+        .sitemenu>input[type="checkbox"]:checked~.site-block{
+            width: 80%;
+            height: 300px;
+            border: 1px solid; /*위에서 주석처리한 보더를 그대로 내림*/
+        }
+
+        /* 정리
+        site메뉴 클래스로 체크박스,라벨,span태그(3선) 묶어주기
+        3선에 width height 블랙을 잡아주고 block형으로 바꿔줘야 적용
+        마진으로 살짝 띄어줌
+        사이트메뉴의 3선에 체크 후 스타일링
+        사이트 블럭에 스타일링
+        사이트 메뉴를 열기 전 화면에 표시되는 것들이 있기 때문에
+        사이트 메뉴에 relative 사이트 블락에 absolute포지셔닝을 잡아준다
+        input체크박스 디스플레이 none으로 가려주기
+        */
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <div class="sitemenu">
+        <input type="checkbox" id="chk">
+        <label for="chk">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="site-block">
+
+        </div>
+    </div>
+
+    
+</body>
+</html>
