@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+
+
+</head>
+
+
+<body>
+
+    <!-- CLOSURE 상태값에 따른 보안처리 -->
+
+    <script>
+        // 클로저
+        // 클로저는 내부 함수가 외부 함수의 변수에 접근 할 수 있는 방법을 의미한다.
+        // 정보 은닉 : 클로저를 사용하여 외부에서 접근 할 수 없도록 변수를 보호하고,
+        // 함수를 통해서만 접근 가능하도록 제한 할 수 있다.
+
+        // 데이터 보존 : 클로저를 사용하여 함수가 생성될 당시의 환경을 유지하면서
+        // 함수내에서 데이터를 영구적으로 보존할 수 있다.
+        // 비동기 처리 : 클로저를 사용하여 비동기적인 작업에서 결과를 유지하고,
+        // 필요할 때에 접근할 수 있다.
+
+
+
+        // 외부함수
+        // =====================================================================
+
+        function outer(){
+            // 상태값 보관
+            let state = 0;
+            // 내부 함수
+            function addOne(){
+                state++;
+                console.log('state..',state); // 렉시컬 스코프 적용
+                console.dir(addOne);
+            }
+            return addOne;  // 함수 이름 리턴되면 만들어진 함수의 위치정보(함수의 메모리 주소)가 반환
+        }
+        const clousureFunc = outer () ;
+        console.log('clousureFunc',clousureFunc);
+        clousureFunc();
+        clousureFunc();
+        clousureFunc();
+        clousureFunc();
+
+
+    </script>
+
+
+
+
+
+    
+</body>
+</html>

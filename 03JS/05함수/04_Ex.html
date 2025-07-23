@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+
+
+</head>
+<body>
+
+
+
+
+
+
+
+
+    <script>
+
+// scope와 closure 개념 코드 해석해보기
+
+        // 전역스코프
+        var x = 'global x'  //var로 호이스팅 될 가능성이 있는 x선언
+        var n1 = 10;        //var n1 선언
+        console.log("window",window.x);  // 전역 스코프 확인 (최상위 객체인 window 하위 객체로 만들어짐)
+        // 문자열 window + window객체 안에있는 x의 데이터 "global x" 출력
+        console.log("window",window.n1);  // 전역 스코프 확인 
+        // 문자열 window + 윈도우 객체 안에있는 n1의 데이터 정수10 출력
+
+        // 지역스코프
+        function outer() {  /* outer는 지역스코프를 가지는 함수(를 선언함) */
+            var x = 'outer x' // x안에 문자열 outer x
+            var y = 0; // y 안에 정수 0
+
+            function inner() { //함수 내부에 함수 inner
+                var x = 'inner x' //inner의 지역변수 x는 inner의 코드블럭 내부에서만 사용됨
+
+                if (x) { //x가 true이면 실행
+                    const x = 'if block scope' //if 코드블럭 안에서만 유효한 x
+                    console.log(x) // x 출력 ok
+                    y++;    // 여전히 outer 코드블럭 내부이기 때문에 y증감 ok
+                    console.log('y',y) //증감된 y 즉 'y',1이랑 같이 결과값 나옴
+                    n1++;   // n1은 전역스코프 기존에 만들어져있던 전역변수 즉 증감 ok
+                    console.log('n1',n1)  //11 나올 거임
+                    // console.log(z)   //얘는 뭐야 왜 있는 거야 뭐지 ?? z를 만든 적 없으니까 쓰면 오류남.
+                }   //if문 코드블럭 닫힘
+                console.dir(inner);  /* 챗gpt피셜 얘 자체가 함수래요
+                                        console.dir(inner)는 inner 함수를 객체 구조로 시각화해서
+                                        출력하는 디버깅 함수라고 한다.
+                                        ★ 함수 내부에 어떤 클로저 환경이 있는지 확인하는 기능 */
+            } // inner 닫힘
+
+           return inner; // inner가 저장된 메모리 주소를 반환
+        }
+
+        const clousureFunc2=outer() //이거 뭐임???
+        /* chat gpt피셜 outer() 실행 결과로 반환된 inner함수를 clousureFunc2에 대입시킴
+           ★clousureFunc2는 이제 outer의 지역 변수 y에 접근이 가능한 클로저가 됐다★ */
+        clousureFunc2();
+        console.log("======================================");
+        clousureFunc2();
+        console.log("======================================");
+        clousureFunc2();
+        console.log("======================================");
+        clousureFunc2();
+        console.log("======================================");
+        clousureFunc2();
+
+        // 함수를 실행할 때마다 전역스코프 n1과 outer함수의 블럭스코프 y를 1씩 증감시킨 값을 출력함
+
+
+    </script>
+
+
+
+</body>
+</html>
