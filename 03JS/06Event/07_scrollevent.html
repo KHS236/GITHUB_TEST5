@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        nav{
+            height: 80px;
+            border-bottom: 1px solid;
+            background-color: aquamarine;
+            transition: 1s;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+        }
+
+        .show{
+            /* nav 보이기 */
+            height: 80px;
+
+        }
+        .hide{
+            /* nav 숨기기 */
+            height: 0;
+
+        }
+        main>section{
+            height: 600px;
+            background-color: #b8ff68;
+
+        }
+
+
+
+
+    </style>
+
+
+
+
+</head>
+
+
+<body style="height: 5000px; margin: 0; padding: 0; width: 8000px;">
+
+    
+    <div class="wrapper">
+        <header>
+            <div class="top-header"></div>
+            <nav></nav>
+        </header>
+        <main>
+            <section></section>
+        </main>
+        <footer></footer>
+    </div>
+
+
+
+    <script>
+
+        const navEl = document.querySelector('.wrapper nav');
+        let scrollstate = 0;
+        document.addEventListener('scroll',()=>{
+
+        })
+
+
+
+        document.addEventListener('scroll',()=>{
+            // window.scrolly : ViewPort를 기준으로 가장 위쪽 부분의 세로축 위치
+            console.log('scrolly...',window.scrollY);
+            // console.log('scrollTop...',document.documentElement.scrollTop);
+            // console.log('scrollHeight...',document.documentElement.scrollHeight);
+            
+            // console.log('scrolly...',window.scrollX);
+            // console.log('scrollwidth...',document.documentElement.scrollLeft);
+            
+
+
+
+            // 스크롤값이 1000이상인 상태에서 스크롤을 위로 올렸을 때 보여주기
+            // 스크롤 현재값을 담기 위한 변수 : let scrollState
+            // if(window.scrollY>=1000 && scrollState > window.scrollY){}
+            // if 윈도우 스크롤Y 즉 스크롤y 값이 1000이상일 경우 && scrollState 즉 현재 값이 y값보다 커질 경우{}
+
+
+
+
+            // 헤더 스타일 변경
+
+            if(window.scrollY>=1000 && scrollState > window.scrollY){
+                
+                navEl.classList.remove('hide')
+                navEl.classList.add('show')
+            }
+
+            else if (window.scrollY>=30) {
+                navEl.classList.remove('show')
+                navEl.classList.add('hide') 
+                
+            }
+
+            else{
+                navEl.classList.remove('hide')
+                navEl.classList.add('show')
+
+            }
+
+            scrollState = window.scrollY;
+
+        })
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

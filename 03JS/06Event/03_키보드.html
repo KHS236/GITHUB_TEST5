@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+
+<body>
+
+
+    KEYUP : <input id="input1"><br>
+    <p id="p1"></p>
+    <hr>
+    KEYDOWN : <input id="input2"><br>
+    <p id="p2"></p>
+    <hr>
+    KEYPRESS : <input id="input3"><br>
+    <p id="p3"></p>
+    <hr>
+
+
+    <script>
+
+        // KEYUP    :   키보드가 올라올 때 (대소문자 구별 x a와A가 모두 아스키코드 65로 출력)
+        const keyupEl = document.querySelector('#input1');
+        const p1El = document.querySelector('#p1');
+        keyupEl.addEventListener('keyup', (e) => {
+            console.log('keyup.,,', e);
+            console.log('keyup.,,', e.key);
+            console.log('keyup.,,', e.keycode);
+            if(e.keyCode==13){  // 13은 엔터
+                // input value의 값을 p1El안에 넣기 - !
+                const value = keyupEl.value;
+                p1El.innerHTML += value+"<br/>";
+                keyupEl.value="";
+
+            }//난 왜 이것도 안 돼 ? 뭐야 왜 갑자기 돼?
+
+        })
+
+        // KEYDOWN  :   키보드가 내려갈 때
+        const keydownEl = document.querySelector('#input2');
+        const p2El = document.querySelector('#p2');
+        keydownEl.addEventListener('keydown', (e) => {
+            console.log('keydown.,,,', e);
+            console.log('keydown', e.key)
+            console.log('keydown', e.keyCode)
+            if(e.keyCode==13){ // 13은 엔터
+                //인풋 밸류를 p2El에 넣어
+                const value = keydownEl.value;
+                p2El.innerHTML += value+"<br/>";
+                keydownEl.vlaue="";
+            }
+
+        })
+
+        // KEYPRESS :   키보드를 계속 누를 때 (제어문자(ex shift) 인식하지 않는다, 영문대소문자 구별 가능)
+        const keypressEl = document.querySelector('#input3');
+        const p3El = document.querySelector('#p3');
+        keypressEl.addEventListener('keypress', (e) => {
+            console.log('keypress...', e)
+            console.log('keypress...', e.key)
+            console.log('keypress...', e.keycode)
+            if(e.keyCode==13){
+                const value = keypressEl.value;
+                p3El.innerHTML += value+"<br/>";
+                keypressEl.value = "";
+            }
+        })
+        // 난 왜 안 돼 ? 왜 갑자기 돼?
+
+
+    </script>
+
+</body>
+
+</html>
