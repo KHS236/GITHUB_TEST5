@@ -93,20 +93,19 @@
 
         function clickHandler(){                    // clickHandler함수 정의
             // 상태     
-            let cnt = 0;                            // cnt 0 초기값 설정 함수 내부에서 선언 됨 (함수 외부에서 접근 x)
-            function addCnt(node){                  // 내부함수 addCnt는 DOM의 요소를 인자로 받음
-                cnt++;                              // 실행될 때마다 카운트 1 증가
-                console.log("addCnt...",cnt);       // 확인용 출력문
-                node.innerHTML=`<h1>${cnt}</h1>`;   //  node에 HTML요소 h1태그안에 cnt값 넣음
+            let cnt = 0;                            // cnt 0 초기값 설정 함수 내부에서 선언 됨 (함수 외부에서 접근 x 캡슐화 !)
+            function addCnt(node){                  // 클릭시 실행 될 내부 함수 addCnt DOM의 요소 node를 인자로 받음
+                cnt++;                              // 실행될 때마다 카운트 1 증가 (클로저 데이터 보존 기억해)
+                console.log("addCnt...",cnt);       // 확인용 출력문 현재 cnt 값 콘솔 출력
+                node.innerHTML=`<h1>${cnt}</h1>`;   //  클릭된 요소의 내용을 HTML요소 h1태그안에 cnt값 넣음
             }
-            return addCnt;                          // addCnt 내부 함수 반환 (add cnt는 cnt값을 기억하고 가져감)
+            return t;addCn                          // addCnt 내부 함수 반환 (이 값으로 외부에서 사용 가능)
         }
-        const addCnt = clickHandler();              // 클릭핸들러 사용하기 위해 addCnt 변수에 클릭핸들러 함수 저장 
-        const d2El = document.querySelector('.d2');  // d2El에 d2요소를 탐색해서 저장
-        d2El.addEventListener("click",(e)=>{           // d2El에 클릭이벤트 발생시 감지 > 화살표 함수를 이벤트 핸들러가 뭔데 시발
-            console.log("clicked...",e.target);       // 확인용 출력 콘솔에 d2 클릭될 때마다 출력 됨
-            addCnt(d2El);                             // 클릭핸들러 함수를 담은 addCnt에 인수로 d2El 즉 d2태그의 클릭이벤트가 실행됐을 때
-                                                    // addCnt 여기선 주석 적지도 못하겠다
+        const addCnt = clickHandler();              // 클로저 생성 : clickHandler를 실행해 addCnt에 내부 함수 참조 저장 <????? 
+        const d2El = document.querySelector('.d2');  // 클래스 선택자 d2인 요소 선택해서 상수d2El에 저장
+        d2El.addEventListener("click",(e)=>{           // 요소에 클릭 이벤트 리스너 등록
+            console.log("clicked...",e.target);       // 디버깅용 출력 콘솔에 d2 클릭될 때마다 출력 됨
+            addCnt(d2El);                             // addCnt 함수 호출 클릭된 요소를 인수로 전달해 카운트 증가 및 화면 출력
         });
         
         /* mouseEnter   : 마우스 포인터가 특정지역내로 진입시
@@ -138,6 +137,7 @@
 
 
 
+        // 드래그 이벤트
         /* 
             dragstart   :   드래그 시작 ( 마우스 끌어당길때의 시작점 )
             drag        :   드래그 중
