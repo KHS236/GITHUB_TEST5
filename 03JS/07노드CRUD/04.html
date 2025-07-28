@@ -85,17 +85,36 @@ family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..2
         window.addEventListener('DOMContentLoaded',()=>{
             // 전역 스코프 요소 검색
             const insertEl = document.querySelector('.insert-value');
-            const insertBtnEl = document.querySelector('.btn-insert');
+            const insertBtnEl = document.querySelector('.btn-insert');    
             const containerEl = document.querySelector('.container');
 
             //이벤트 처리
             insertBtnEl.addEventListener('click',()=>{
                 const text = insertEl.value;
+                if(!isValid(text)) //유효성 체크 isValid(text)가 유효하지 않다면
+                    return;     // 아래 코드 실행하지 않고 return해서 그냥 끝내기
                 // container에 item 추가
                 createNode(text);
                 insertEl.value ="";
             
             })
+            // 엔터키 키다운 이벤트 등록
+            insertEl.addEventListener('keydown',(e)=>{
+                console.log(e);
+                if(e.keyCode==13){
+                const text = insertEl.value;
+                if(!isValid(text))
+                    return;
+                // container에 item 추가
+                createNode(text);
+                insertEl.value ="";    
+                }
+
+            });
+
+
+
+
             // 노드추가 함수 생성(Hoisting 적용)
             function createNode(text){
                 //유효성 체크 - !
@@ -118,12 +137,25 @@ family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..2
 
                 // 속성 추가
                 inputEl.setAttribute('readonly',true);
+                aEl.setAttribute('href','javascript:void(0)')
 
 
                 // 데이터 삽입
                 
                 spanEl.innerHTML='delete'; //저는 아이콘이 아니고 글씨가 나오는데욥 ??? 예 ?? ㅋㅋ
                 inputEl.value=text;         //아이콘이 문제였던 걸로
+
+
+
+                // 이벤트 추가
+                aEl.addEventListener('click',(e)=>{
+                    const itemEl = e.target.parentNode.parentNode.parentNode
+                    // item요소를 잡기 e==span의 상위태그,상위태그,상위태그 .item으로 잡힌다
+                    // console.log(e.target.parentNode.parentNode.parentNode);
+                    itemEl.remove();
+                    // 리무브함수를 쓰면 삭제해준대
+                })
+
 
 
                 // 노드간 작업
@@ -137,6 +169,22 @@ family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..2
                 containerEl.prepend(itemEl) // 위에서부터 쌓이도록
 
             }
+
+            function isValid(text){     //유효성 체크 (노드 생성은 노드 생성만 유효성 체크는 따로)
+                const regex = /^[0-9]/;  // 정규표현식 /^ /;                
+                // 공백 여부 확인
+                if(text.trim()===''||text.trim()===null){
+                    // .trim() == 입력한 문자열의 앞 뒤 공백을 제거해주는 함수. 많이 쓴다.
+                    alert("내용을 입력해주세요.");
+                    return false;
+                }
+                if(regex.test(text)){
+                    alert("첫번째는 숫자를 입력할 수 없습니다.")
+                    return false; // 난 왜 다 안 돼 ?
+                }
+                return true;
+
+            };
         })
     </script>
 </body>

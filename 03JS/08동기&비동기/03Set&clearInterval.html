@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+
+</head>
+
+
+<body>
+
+    <button onClick="start()">반복_예약 실행</button>
+    <button onClick="stop()">반복_예약 취소</button>
+    <hr/>
+    <div class="d1"></div>
+
+    <script>
+        let id = null; //일단 기본값은 null
+        let cnt=0;
+
+
+        // 반복 예약 처리 setinterval
+        const start = ()=>{
+            const d1El = document.querySelector('.d1');
+            id=setInterval(()=>{
+                d1El.innerHTML=`SETINTERVAL RESULT...${++cnt}`;
+            },1000); //1초
+            console.log("id",id); //id2
+        };
+
+
+        // 반복 예약 취소 clearinterval
+        const stop = ()=>{
+            clearInterval(id); //반복 예작 작업의 id를 종료
+        };
+
+        // 내가 뭘 한 거지 ?>
+
+    </script>
+
+    
+</body>
+</html>

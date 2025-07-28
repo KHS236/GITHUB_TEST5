@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+
+
+</head>
+
+
+<body>
+
+    <button onClick="start()">예약 실행</button>
+    <button onClick="stop()">예약 취소</button>
+    <hr/>
+    <div class="d1"></div>
+
+    <script>
+        let id = null; //일단 기본값은 null
+
+
+
+        // 예약 처리
+        const start = ()=>{
+            const d1El = document.querySelector('.d1');
+            id=setTimeout(()=>{
+                d1El.innerHTML='SETTIMEOUT RESULT...'
+            },3000); //3초
+            console.log("id",id); //id2
+        };
+
+
+        // 예약 취소
+        const stop = ()=>{
+            clearTimeout(id); //비동기로 분할 된 작업에 대한 종료
+        };
+
+        // 내가 뭘 한 거지 ?>
+
+    </script>
+
+    
+</body>
+</html>
