@@ -68,14 +68,16 @@
         // ----------------------------------------
         // Load이벤트
         // ----------------------------------------
-        // DOMContentLoaded : 최초 Document 로드시 1회 동작(HTML이 전부 파싱된 이후 DOM객체가 완성되고 나서
-        // css, 외부파일 로드여부와는 관계없다)
-        // load             : 최초 Document 로드시 1회 동작 (모든 리소스가 완전히 로드된 이후 실행)
+        // DOMContentLoaded :  최초 HTML 문서 구조(DOM) 로드 완료시 1회 실행
+        // (CSS, 이미지 등 외부 리소스는 로드되지 않아도 된다.)
+        //  -       -       -         -        -         -         -       -
+        // load             :  모든 리소스가 완전히 로드된 이후 실행
         
 
         window.addEventListener('DOMContentLoaded',(e)=>{
             
-            // 반응처리함수
+            // 공 크기 반응처리 함수
+            //  - 브라우저 너비에 따라 공 클새스를 변경한다.
             const flexibleBall=(Width,ball)=>{
                 if(Width<=480){
                     ball.className='ball ball-480px'
@@ -96,6 +98,7 @@
             
             
             // Resize Eventer Listener
+            //  창 크기 변경 (resize) 시에 반응 처리 재실행
             window.addEventListener('resize',()=>{
                 flexibleBall(window.innerWidth,ballEl);
                 
@@ -113,7 +116,7 @@
 
         // window.addEventListener('resize',()=>{
         //     console.log('외부 크기 변화 width확인',window.outerWidth);
-        //     console.log('외부 크기 변화 height확인',window.outerheight);
+        //     console.log('외부 크기 변화 height확인',window.outerHeight);
             
             
             

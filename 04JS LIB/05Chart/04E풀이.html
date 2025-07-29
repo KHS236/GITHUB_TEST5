@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="./js/경찰청지역별범죄발생건수.js"></script>
+</head>
+
+
+<body>
+
+    <div style="width: 800px; height: 500px;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+
+
+
+
+<!-- 풀이
+ item당 범죄대분류,범죄중분류를 제외한 값을 필터로 걸러내고
+ 나머지 값들의 합을 구해서
+ 범죄 대분류에 다 넣는다 -->
+
+
+    <script>
+
+        console.log("ALLDATA",지역별범죄건수);
+
+        const result = 
+        지역별범죄건수.reduce((resultObject,item)=>{
+            const {범죄대분류,범죄중분류, ...rest} = item; //구조분해할당
+            const values = Object.values(rest);
+            const item_sum = values.reduce((sum,count)=>{return sum+count},0)
+            
+            // console.log(범죄대분류,item_sum);
+            // return {범죄대분류,item_sum}
+            if(resultObject[범죄대분류]!==undefined){
+                resultObject[범죄대분류] += item_sum;
+            }
+            else{
+                // 처음누적
+                resultObject[범죄대분류] = item_sum;
+            }
+            return resultObject;
+        },{})
+        console.log("========================================================");
+        console.log(result);
+
+
+    </script>
+
+
+
+</body>
+
+</html>

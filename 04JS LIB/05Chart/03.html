@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/중구맛집.js"></script>
+
+</head>
+
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+
+
+    <div style="width: 800px; height: 500px;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+
+    <script>
+        // 
+        console.log("ALL DATA", 중구맛집);
+        //
+        const datas = 중구맛집.data;
+        console.log("datas", datas);
+
+        // 카테고리별 맛집 count
+        const cat_count = datas.map((item) => { return item.FD_CS })
+            .reduce((cat, item) => {
+                if (cat[item] !== undefined)
+                    cat[item]++;
+                else
+                    cat[item] = 1;
+                return cat;
+            }, {}) //{"한식":100, "일식":55}
+
+        console.log(cat_count);
+
+
+
+    </script>
+
+
+    <!-- chartJS -->
+    <script>
+
+        const ctx = document.getElementById('myChart');
+
+        const dataSet = [
+            {
+                label: 'red',
+                data: [55, 0, 0, 0, 0, 0],
+                borderWidth: 1,
+                backgroundColor: 'red',
+                borderColor: '',
+            },
+            {
+                label: 'orange',
+                data: [0, 70, 0, 0, 0, 0],
+                borderWidth: 1,
+                backgroundColor: 'orange',
+                borderColor: '',
+            },
+            {
+                label: 'yellow',
+                data: [0, 0, 33, 0, 0, 0],
+                borderWidth: 1,
+                backgroundColor: 'yellow',
+                borderColor: '',
+            },
+            {
+                label: 'green',
+                data: [0, 0, 0, 62, 0, 0],
+                borderWidth: 1,
+                backgroundColor: 'green',
+                borderColor: '',
+            },
+            {
+                label: 'navy',
+                data: [0, 0, 0, 0, 72, 0],
+                borderWidth: 1,
+                backgroundColor: 'navy',
+                borderColor: '',
+            },
+            {
+                label: 'purple',
+                data: [0, 0, 0, 0, 0, 95],
+                borderWidth: 1,
+                backgroundColor: 'purple',
+                borderColor: '',
+            },
+        ]
+
+
+        const option = {
+            // // line에 animation 적용
+            // animation:{                 // 춤 추는 거 귀엽다
+            //     tension:{
+            //         duration : 1000,
+            //         easing : 'linear',
+            //         from : 1,
+            //         to : 0,
+            //         loop : true,
+            //     },
+            // },
+
+            // bar에 animation 적용
+            animation: {
+                delay: (el) => { return el.dataIndex * 500; },
+            },
+
+
+            scales: {
+                x: {
+                    stacked: true,
+
+                },
+
+                y: {
+                    beginAtZero: true, //0부터 시작
+                    // max : 100, // 최대값 100
+                    // min : 0, // 최소값 100
+                    // ticks:{
+                    //     stepSize:10, // 10단위로 표시
+                    // },
+                },
+            },
+            onClick: (event, chartEl) => {
+                // console.log(event);
+                console.log(chartEl);
+
+
+
+            },
+
+        }
+
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: Object.keys(cat_count),
+                datasets: [{
+                    label: 'COUNT',
+                    data: Object.values(cat_count),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

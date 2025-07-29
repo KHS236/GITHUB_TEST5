@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="./js/경찰청지역별범죄발생건수.js"></script>
+</head>
+
+
+<body>
+
+    <div style="width: 800px; height: 500px;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+
+
+    <!--  -->
+
+
+
+
+
+    <script>
+
+        console.log("ALLDATA",지역별범죄건수);
+
+        const result = 
+        지역별범죄건수.reduce((resultObject,item)=>{
+            const {범죄대분류,범죄중분류, ...rest} = item; //구조분해할당
+            const values = Object.values(rest);
+            const item_sum = values.reduce((sum,count)=>{return sum+count},0)
+            
+            // console.log(범죄대분류,item_sum);
+            // return {범죄대분류,item_sum}
+            if(resultObject[범죄대분류]!==undefined){
+                resultObject[범죄대분류] += item_sum;
+            }
+            else{
+                // 처음누적
+                resultObject[범죄대분류] = item_sum;
+            }
+            return resultObject;
+        },{})
+        console.log("========================================================");
+        console.log(result);
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        const dataSet = [
+            {
+                label: '강력범죄',
+                backgroundColor: 'red',
+            },
+            {
+                label: '교통범죄',
+                backgroundColor: 'orange',
+            },
+            {
+                label: '기타범죄',
+                backgroundColor: 'yellow',
+            },
+            {
+                label: '노동범죄',
+                backgroundColor: 'green',
+            },
+            {
+                label: '마약범죄',
+                backgroundColor: 'blue',
+            },
+            {
+                label: '병역범죄',
+                backgroundColor: 'navy',
+            },
+            {
+                label: '보건범죄',
+                backgroundColor: 'puple',
+            },
+            {
+                label: '선거범죄',
+                backgroundColor: 'baige',
+            },
+            {
+                label: '안보범죄',
+                backgroundColor: 'lime',
+            },
+            {
+                label: '절도범죄',
+                backgroundColor: 'skyblue',
+            },
+            {
+                label: '지능범죄',
+                backgroundColor: 'aqua',
+            },
+            {
+                label: '특별경제범죄',
+                backgroundColor: 'gold',
+            },
+            {
+                label: '폭력범죄',
+                backgroundColor: 'silver',
+            },
+            {
+                label: '풍속범죄',
+                backgroundColor: 'brown',
+            },
+            {
+                label: '환경범죄',
+                backgroundColor: 'pink',
+            },
+
+        ]
+
+
+        const option = {
+            // line에 animation 적용
+            animation:{                 // 춤 추는 거 귀엽다
+                tension:{
+                    from : 1,
+                    to : 0,
+                },
+            },
+        }
+
+        </script>
+
+        <script>
+    
+    
+            const ctx = document.getElementById('myChart');
+    
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(result),
+                    datasets: [{
+                        dataSet,
+                        data: [24332,348725,241829,356,9186,3845,14595,829,216,179517,424642,47826,265768,22632,3568],
+                        borderWidth: 1
+                    }]
+                },
+                options: option,
+            
+        });
+        </script>
+
+
+</body>
+
+</html>
