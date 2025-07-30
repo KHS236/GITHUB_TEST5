@@ -1,0 +1,86 @@
+/* 기본 스타일 제거*/
+:root {
+    font-size: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* 헤더 */
+.wrapper {}
+
+.wrapper>header {}
+
+.wrapper>header>.top-header {}
+
+.wrapper>header>nav {}
+
+/* 메인 */
+.wrapper>main {}
+
+.wrapper>main>section {}
+
+/* 배너 */
+.wrapper>main>section.banner-block .carousel-control-prev {
+    /* border: 5px solid white; */
+
+}
+
+.wrapper>main>section.banner-block .carousel-control-next {
+    /* border: 5px solid white; */
+}
+
+.carousel-control-prev-icon {
+    width: 48px;
+    height: 48px;
+    /* background-color: red; */
+    border-radius: 50%;
+}
+
+.carousel-control-next-icon {
+    width: 48px;
+    height: 48px;
+    /* background-color: red; */
+    border-radius: 50%;
+}
+
+/* 카드 */
+.wrapper>main>section.card-block {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);  /* 그리드를 한 행에 4개가 들어가도록 (리핏 넣어야돼)*/
+    /* border: 5px solid red; */
+    gap: 15px;
+
+    /*  */
+    place-items: center; /* 카드를 보더기준 완전히 중앙 정렬*/
+
+    padding: 100px 0; /*섹션 간 여백을 줌*/
+
+
+}
+
+.wrapper>main>section.navtap-block .tab-content {
+    min-height: 300px;
+}
+
+
+
+/* 푸터 */
+.wrapper>footer {}

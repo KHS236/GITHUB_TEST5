@@ -1,0 +1,56 @@
+/* 기본 스타일 제거*/
+:root {
+    font-size: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* 헤더 */
+.wrapper {}
+
+.wrapper>header {}
+
+.wrapper>header>.top-header {
+    font-size: .8rem;
+    font-weight: 200;
+}
+.wrapper>header>.top-header>span {
+    margin: 0 10px;
+}
+
+.wrapper>header>nav {
+    /* justify-content:end; */
+}
+.wrapper>header>nav>.nav-tabs{
+    color: black;
+}
+.tab-content>.tab-pane>.main_section1>ul>li>a {
+    width: 100px;
+    height: 100px;
+
+}
+
+/* 메인 */
+.wrapper>main {}
+
+.wrapper>main>section {}
+
+.wrapper>footer {}

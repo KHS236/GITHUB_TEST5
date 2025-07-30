@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지도 경로 표시 예제</title>
+    <!-- 지도 받아오기 -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+
+        /* 맵의 기본 크기 */
+        #map {
+            height: 500px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        #form {
+            margin-bottom: 10px;
+        }
+        #info {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="form">
+    <input type="text" id="start" placeholder="출발지 주소">
+    <input type="text" id="end" placeholder="목적지 주소">
+    <button onclick="findRoute()">경로 찾기</button>
+</div>
+
+<div id="map"></div>
+<div id="info"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
+<!-- 기본적인 필요 기능
+ 1 지도스타일
+ 2 마커이벤트 -> 클러스터링(여러 마커를 묶어주는 작업)
+ 3 검색(지오코더) 
+ leaflet>>도큐먼트-->
