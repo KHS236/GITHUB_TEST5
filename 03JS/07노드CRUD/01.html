@@ -1,21 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
-
-
-
 </head>
 
 <body>
-
-    
-
-
-
     <ul>
         <li>1_LIST</li>
         <li id="li2">2_LIST</li>
@@ -28,46 +20,51 @@
     </ul>
 
     <script>
-        // 노드 탐색
-        // id       =============================================
-        const li2El = document.getElementById('li2');
-        li2El.style.fontSize='24px'; //id에 #쓰지 않기
-        li2El.setAttribute("style","color:red;background-color:black")
-        // selector ===========================================
-        const li2El_2 = document.querySelector('#li2');
-        li2El_2.style.width='200px';
+        // ===========================
+        // 1. ID로 요소 가져오기
+        // ===========================
+        const li2El = document.getElementById('li2'); // id는 # 없이 작성
+        // 스타일 직접 설정
+        li2El.style.fontSize = '24px';
+        // 여러 스타일을 한꺼번에 설정 (기존 설정 덮어씀)
+        li2El.setAttribute("style", "color:red;background-color:black");
 
-        const itemEl = document.querySelector('.item');
-        itemEl.style.color='green';
-        itemEl.style.fontSize='2rem';
-        // 첫번째로 검색 된 item만 적용됨..
+        // ===========================
+        // 2. CSS 선택자 방식 (querySelector)
+        // ===========================
+        const li2El_2 = document.querySelector('#li2'); // id 선택자
+        li2El_2.style.width = '200px';
 
-        // >>>>>여러개를 쓰려면? querySelector'All'
-        const itemEls = document.querySelectorAll('.item');
-        console.log(itemEls);
-        itemEls.forEach((el)=>{
-            el.style.fontWeight="900";
-            el.style.background="aqua"; //그냥 백그라운드 해도 되네?
-        })
-        // >>배열형태로 출력됨
-        // tagName ==============================================
+        const itemEl = document.querySelector('.item'); // 첫 번째 .item만 선택됨
+        itemEl.style.color = 'green';
+        itemEl.style.fontSize = '2rem';
 
-        let listsEl = document.getElementsByTagName('li');
+        // ===========================
+        // 3. 여러 개 요소 선택 (querySelectorAll)
+        // ===========================
+        const itemEls = document.querySelectorAll('.item'); // 클래스가 item인 모든 요소
+        console.log(itemEls); // NodeList 형태
+
+        itemEls.forEach((el) => {
+            el.style.fontWeight = "900";
+            el.style.background = "aqua";
+        });
+
+        // ===========================
+        // 4. 태그 이름으로 요소 가져오기 (getElementsByTagName)
+        // ===========================
+        let listsEl = document.getElementsByTagName('li'); // 유사 배열 (HTMLCollection)
         console.log(listsEl);
-        // 유사 배열 형태로 출력된다
-        // Array.from(유사배열)     : 유사배열 --> 배열 형태로 형변환
+
+        // 유사 배열을 진짜 배열로 변환해야 forEach 등 배열 메서드 사용 가능
         listsEl = Array.from(listsEl);
         console.log(listsEl);
-        listsEl.forEach((el)=>{
-            el.style.fontSize='4rem';
-            el.style.color="blue"
-        })
 
-
-
+        listsEl.forEach((el) => {
+            el.style.fontSize = '4rem';
+            el.style.color = "blue";
+        });
     </script>
-
-
-
 </body>
+
 </html>

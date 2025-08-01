@@ -1,64 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
-
-
-
 </head>
 
-
 <body>
-
     <form action="">
-        <input type="text">
-        <input type="text">
-        <input type="checkbox">
+        <input type="text" />
+        <input type="text" />
+        <input type="checkbox" />
     </form>
+
     <form action="" name="joinForm">
-        <input type="text" name="userid">
-        <input type="text" name="password">
-    </form>
-    <form action="">
-        <input type="text">
-        <input type="text">
+        <input type="text" name="userid" />
+        <input type="text" name="password" />
     </form>
 
+    <form action="">
+        <input type="text" />
+        <input type="text" />
+    </form>
 
     <script>
-        // 전체 form 찾기
-        const formEls = document.forms;  
-        console.log(formEls);
+        // ================================
+        // 1. 전체 form 요소 컬렉션 가져오기
+        // document.forms 는 현재 문서의 모든 form들을 포함하는 HTMLCollection (실시간 반영)
+        // ================================
+        const formEls = document.forms;
+        console.log(formEls); // 전체 form 목록
 
-        // 개별 form 접근 (인덱스로 접근)
-        console.log(formEls[0]);
-        console.log(formEls[1]);
-        console.log(formEls[2]);
+        // ================================
+        // 2. 인덱스로 개별 form 접근
+        // ================================
+        console.log(formEls[0]); // 첫 번째 form
+        console.log(formEls[1]); // 두 번째 form (name="joinForm")
+        console.log(formEls[2]); // 세 번째 form
 
-        // 개별 form 내의 input 접근 (인덱스로 접근)
-        formEls[0][0].value='기몽섭';
-        formEls[0][1].value='티모'; // 난 왜 안 들어가??????????????
-        formEls[0][2].checked =true;
+        // ================================
+        // 3. 특정 form 내부의 필드에 인덱스로 접근
+        // formEls[0][0], [1], [2] 는 첫 번째 form 안의 input 요소들
+        // ================================
+        formEls[0][0].value = '기몽섭';    // 첫 번째 input에 값 설정
+        formEls[0][1].value = '티모';      // 두 번째 input에 값 설정
+        formEls[0][2].checked = true;      // 체크박스 체크
 
-
-
-
-
-
-// ============================================================================
-        // ★ 개별 form 내의 input 접근 (Name으로 접근하기)
-        const joinForm = document.joinForm
+        // ================================
+        // 4. name 속성으로 form과 내부 필드 접근
+        // document.joinForm 으로 name="joinForm"인 form을 바로 참조 가능
+        // 내부 input들도 각각 name으로 접근 가능
+        // ================================
+        const joinForm = document.joinForm;
         joinForm.userid.value = "윤돌총";
         joinForm.password.value = "1234";
-
-
-
     </script>
-    
-
-
 </body>
+
 </html>
