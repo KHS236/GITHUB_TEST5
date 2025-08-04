@@ -307,7 +307,7 @@ Ip adderss 자기 주소는
 
 
 =============================================================================
-
+exam ccna 3-3
 
 라우팅 프로토콜
 
@@ -345,7 +345,132 @@ static
 
 default
 그 외의 나머지에 대한 방향을 제시하는 것
+Network 0.0.0.0.
+Mast 0.0.0.0
+Next Hop 동일
+
 -----------
+
+
+
+
+
+
+
+
+타임아웃이 나오는 3가지 경우
+내 호스트 ip 없을 때
+게이트웨이 없을 때
+상대 호스트 ip 없을 때
+
+
+
+--------------------------------------------------------------
+
+
+DNS
+          요청
+server <--> Client
+    제공
+
+클라이언트가 서버에 요청하면 서비스를 제공(Program)
+
+Network로 연결
+
+서버의 서비스에 연결돼 내용을 요청하기 위해 필요한 것
+server ip : 소켓(구별번호)
+
+
+WEB service
+DNS service
+
+
+Domain Name Server/Service/System.. 
+
+Domain : 영역
+Name : 이름 (문자 형태의 주소)
+Service : ~를 제공하다
+
+DN : www.naver.com << 얘가 도메인 네임
+
+
+DNS 서버 문자 주소와 숫자 주소를 가지고
+문자 주소를 주면 숫자 주소를 반환해줌
+
+----------------------------------------
+
+WEB Server
+
+Hyper text 형태의 문서 파일을 제공
+
+
+================================================
+
+동적 Routing Protocol
+
+전체경로 학습 + 최적경로산출
+
+
+        Distance Vector : *RIP (시험 등장)
+    IGP
+        Link - State : OSPF
+AS
+        
+    EGP
+
+
+AS (Autonomous System) : 자치시스템, 관리자에 의해서 관리되는 라우터의 집합
+IGP (Interior Gateway Protocol)
+EGP (Exterior Gateway Protocol)
+
+
+Distance Vector : 거리벡터 형식 알고리즘
+전체경로정보 학습 -> 최적경로 산출
+Distance 거리 -> 거리 재는 단위 : Hop
+Vector 방향   
+
+Hop을 최소한으로 건너는 경로로 전달하는 것이 Distance Vector
+
+Looping
+1 - Hop 카운팅 제한 (MAX-15HOP)
+2
+3
+4
+5
+6
+7
+
+
+
+
+RIP (Route Information Protocol)
+Matric : Hop(Max Hop : 15)
+multicast : 2024.0.0.09
+Administartarctive : 120
+광고주기 30초
+
+
+
+
+LINK - STATE 방식
+-> 링크(케이블) 상태정보 (OSPF Bandwidth(대역폭) 값을 이용)
+
+전체경로 학습 -> 최적경로 계산
+
+Bandwidth 값
+FE : 1000000 000
+Ethenet : 100000 000
+SE : 1544 000
+
+/10^8 = cost
+
+경로상 cost값이 가장 낮은 경로로 이동
+
+
+
+
+
+
 
 
 
