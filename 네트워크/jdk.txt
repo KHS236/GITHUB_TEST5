@@ -1,0 +1,94 @@
+
+
+
+
+
+
+이클립스 설정
+file new
+other
+server검색
+apachi
+v9.0
+finish
+
+
+
+
+밑에 톰캣 더블클릭
+톰캣 어드민 포트 8091
+저장
+밑에 우클릭 스타트
+클린하고 다시 스타트
+started 상태
+stop 상태
+
+
+
+file
+new
+dynamic webproject
+이름 WEB_PROJECT
+타겟 런타임 톰캣v9.0
+finish
+
+webproject
+servicemain
+webapp
+new
+jsp파일
+이름 index.jsp파일
+
+
+body
+내용 아무거나 넣기
+jsp파일 우클릭
+run AS
+run on server
+톰캣선택
+체크
+finish
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
