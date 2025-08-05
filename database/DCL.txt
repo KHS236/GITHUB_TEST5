@@ -1,0 +1,24 @@
+
+어드미니스트레이션 > 유저 엔 프리빌리지
+>애드 어카운트> 유저네임 , 리밋 투 호스트 매칭 로컬호스트
+>비밀번호 적고 어플라이
+
+
+홈 > +모양
+user1 호스트는 127.0.0.1 == localhost
+이름변경
+
+
+root 에서 권한 부여
+
+
+
+
+커맨드에서 계정 생성
+
+-- 계정생성
+create user user2@localhost identified by '1234';
+-- 권한부여 
+grant select,insert on test1db.* to user2;
+
+
